@@ -4,7 +4,7 @@
     <title>BUYSELL</title>
 </head>
 <body>
-<h1>BUYSELL</h1><hr>
+<h1><a href="/">BUYSELL</a> </h1><hr>
 <h4>Подробная информация о товаре</h4>
 <#list images as img>
     <img src="/images/${img.id}" height="60px"/><br><br>
@@ -13,8 +13,8 @@
 <b>Описание товара: </b>${product.description}<br>
 <b>Цена: </b>${product.price}<br>
 <b>Город: </b>${product.city}<br>
-<b>Автор: </b>${product.user.name}<br>
-<b>Номер телефона: </b>${product.user.numberPhone}<br>
+<b>Автор: </b><a href="/user/${product.user.id}">${product.user.name}</a> <br>
+
 
 </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BUYSELL</title>
+    <title>SELLORBUY</title>
 </head>
 <body>
-<h1><a href="/">BUYSELL</a> </h1><hr>
+<h1><a href="/">SELLORBUY</a> </h1><hr>
 <h4>Подробная информация о товаре</h4>
 <#list images as img>
     <img src="/images/${img.id}" height="60px"/><br><br>

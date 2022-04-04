@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BUYSELL</title>
+    <title>SELLORBUY</title>
 </head>
 <body>
-<h1><a href="/">BUYSELL</a> </h1><hr>
+<h1><a href="/">SELLORBUY</a> </h1><hr>
 <#if user.email??>
     <h3>Имя пользователя : ${user.name}</h3>
 <hr>
@@ -19,7 +19,8 @@
 <a href="/login">Войти</a></h1>
 </#if>
 <hr>
-<h4>Товары со всей России</h4>
+<h2>Продавай и покупай</h2>
+<h3>Товары со всей России</h3>
 <form action="/" method="get">
     Поиск по названию объявления: <input type="text" name="title"><br>
     <input type="submit" value="Поиск"/>

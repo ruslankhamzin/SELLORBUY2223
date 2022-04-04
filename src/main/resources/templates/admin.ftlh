@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BUYSELL</title>
+    <title>SELLORBUY</title>
 </head>
 <body>
-<h1><a href="/">BUYSELL</a> </h1><hr>
+<h1><a href="/">SELLORBUY</a> </h1><hr>
 <h4>Панель администратора</h4>
 <table>
     <tr>

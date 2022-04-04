@@ -11,8 +11,8 @@
     <groupId>com.example</groupId>
     <artifactId>buysell</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>buysell</name>
-    <description>Clone Avito</description>
+    <name>SellOrBuy</name>
+    <description>Pet-project for Orion</description>
     <properties>
         <java.version>11</java.version>
     </properties>

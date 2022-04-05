@@ -1,8 +1,6 @@
 package com.example.buysell.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -27,10 +25,10 @@ public class Product {
     private String city;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-    mappedBy = "product")
+            mappedBy = "product")
     private List<Image> images = new ArrayList<>();
     private Long previewImageId;
-    @ManyToOne(cascade = CascadeType.REFRESH,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn
     private User user;
     private LocalDateTime dateOfCreated;

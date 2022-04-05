@@ -32,18 +32,18 @@ public class UserService {
         userRepository.save(user);
         return true;
     }
-    public List<User> list(){
+
+    public List<User> list() {
         return userRepository.findAll();
     }
 
     @PostMapping("/user/ban/{id}")
     public void banUser(Long id) {
         User user = userRepository.findById(id).orElse(null);
-        if(user!=null){
-            if(user.isActive()){
+        if (user != null) {
+            if (user.isActive()) {
                 user.setActive(false);
-            }
-            else{
+            } else {
                 user.setActive(true);
             }
 
@@ -56,8 +56,8 @@ public class UserService {
                 .map(Role::name)
                 .collect(Collectors.toSet());
         user.getRoles().clear();
-        for(String key : form.keySet()){
-            if(roles.contains(key)){
+        for (String key : form.keySet()) {
+            if (roles.contains(key)) {
                 user.getRoles().add(Role.valueOf(key));
             }
         }

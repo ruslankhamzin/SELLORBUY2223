@@ -1,24 +1,29 @@
 package com.example.buysell.controllers;
 
 import com.example.buysell.models.User;
+import com.example.buysell.models.UserROLES;
 import com.example.buysell.models.enums.Role;
+import com.example.buysell.repositories.User_roleRepository;
 import com.example.buysell.services.UserService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Controller
-@RequiredArgsConstructor
-@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class AdminController {
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private User_roleRepository user_roleRepository;
+
+    private List abc = new ArrayList();
 
     @GetMapping("/admin")
     public String admin(Model model) {
@@ -31,11 +36,20 @@ public class AdminController {
         userService.banUser(id);
         return "redirect:/admin";
     }
-
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PostMapping("/newRole")
+    public String newRole(@RequestParam Map<String,String> form) throws ParseException {
+        if (abc.isEmpty()) {
+            abc.addAll(List.of(Role.values()));
+        }
+        abc.add(form.get("name"));
+        return "redirect:/admin";
+    }
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/admin/user/edit/{user}")
     public String userEdit(@PathVariable("user") User user, Model model) {
         model.addAttribute("user", user);
-        model.addAttribute("roles", Role.values());
+        model.addAttribute("roles", abc);
         return "user-edit";
     }
 
@@ -44,5 +58,4 @@ public class AdminController {
         userService.changeUserRoles(user, form);
         return "redirect:/admin";
     }
-
 }

@@ -38,6 +38,16 @@
     </#list>
 </table>
 
+    <form action="/newRole" method="post">
+    Название роли: <input type="text" name="name"><br><br>
+    Доступ к панели администратора <input type = "checkbox" name ="check"<br><br>
+    Доступ к созданию новых пользователей <input type = "checkbox" name ="create"<br><br>
+    Доступ к редактированию пользователей <input type = "checkbox" name ="edit"<br><br>
+    Дата старта <input type = "date" name ="datestart"<br><br>
+    Дата конца <input type = "date" name ="dateend"<br><br>
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="Создать"/>
+    </form>
 
 </body>
 </html>

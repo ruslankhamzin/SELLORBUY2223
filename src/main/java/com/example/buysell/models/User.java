@@ -39,6 +39,17 @@ public class User implements UserDetails {
     private List<Product> products = new ArrayList<>();
     private LocalDateTime dateOfCreated;
 
+    @ManyToMany(mappedBy = "users")
+    private Set<UserROLES> user_ROLES = new LinkedHashSet<>();
+
+    public Set<UserROLES> getUser_ROLES() {
+        return user_ROLES;
+    }
+
+    public void setUser_ROLES(Set<UserROLES> user_ROLES) {
+        this.user_ROLES = user_ROLES;
+    }
+
     @PrePersist
     private void init() {
         dateOfCreated = LocalDateTime.now();
